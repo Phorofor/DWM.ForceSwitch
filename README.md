@@ -18,7 +18,7 @@ Lots of things will break in Windows 10 with DWM not running, so here's some of 
 
 * Anything that involves the immersive flyouts will not work. This includes the network, battery, language, clock, volume and action center flyouts in the taskbar.
 
-* You can use the legacy-style Alt-Tab App Switcher (which is used in the actual Classic Theme) by tweaking [some values in your registry](http://www.askvg.com/how-to-get-windows-xp-styled-classic-alttab-screen-in-windows-vista-and-7/).
+* You can use the legacy-style Alt-Tab App Switcher by tweaking [some values in your registry](http://www.askvg.com/how-to-get-windows-xp-styled-classic-alttab-screen-in-windows-vista-and-7/).
 
 * The 'Open With' dialog will not work. Frieger's [OpenWith Enhanced](http://extensions.frieger.com/owdesc.php) mimics the Windows 7 Open With dialog with a few more additions which is not dependant upon the DWM. 
 
