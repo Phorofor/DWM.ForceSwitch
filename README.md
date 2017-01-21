@@ -1,5 +1,5 @@
 # Desktop Window Manager Force Switch
-** Tested on Windows 10 / Server 2016 **
+**Tested on Windows 10 / Server 2016**
 Don't bother with trying to use this on Windows 8/8.1.
 
 This requires pssuspend.exe from SysInternals' PsTools by Mark Russinovich
