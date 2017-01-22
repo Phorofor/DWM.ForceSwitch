@@ -19,7 +19,7 @@ echo Killing Desktop Window Manager (dwm.exe)
 taskkill /f /im dwm.exe
 
 echo Starting Explorer
-start explorer.exe
+start userinit
 
 echo Taking ownership of existing dwm.exe
 takeown /a /f "%SystemRoot%\System32\dwm.exe" 
