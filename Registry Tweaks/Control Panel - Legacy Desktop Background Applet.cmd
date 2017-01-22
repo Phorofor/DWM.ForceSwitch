@@ -1,0 +1,1 @@
+control /name Microsoft.Personalization /page pageWallpaper
