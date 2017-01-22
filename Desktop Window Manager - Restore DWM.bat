@@ -18,7 +18,7 @@ pssuspend.exe winlogon.exe
 echo Killing Desktop Window Manager (dwm.exe)
 taskkill /f /im dwm.exe
 
-echo Starting Explorer
+echo Starting userinit
 start userinit
 
 echo Taking ownership of existing dwm.exe
