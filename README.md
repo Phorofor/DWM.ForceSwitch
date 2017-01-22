@@ -1,4 +1,4 @@
-# Desktop Window Manager Force Switch
+# Desktop Window Manager Disabler/Force Switcher
 **Tested on Windows 10 / Server 2016**
 Don't bother with trying to use this on Windows 8/8.1 or any touch screen device where a physical keyboard and mouse is not possible to use.
 
