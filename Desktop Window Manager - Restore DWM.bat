@@ -11,15 +11,19 @@ pause
 
 echo Killing File Explorer (explorer.exe)
 taskkill /f /im explorer.exe
+
 echo Suspending winlogon.exe
 pssuspend.exe winlogon.exe
+
 echo Killing Desktop Window Manager (dwm.exe)
 taskkill /f /im dwm.exe
+
 echo Starting Explorer
 start explorer.exe
 
 echo Taking ownership of existing dwm.exe
 takeown /a /f "%SystemRoot%\System32\dwm.exe" 
+
 echo Replacing dwm.exe
 copy /Y "%~dp0\DWM\dwm_original.exe" "%SystemRoot%\System32\dwm.exe"
 
@@ -33,8 +37,8 @@ copy /Y "%~dp0\DWM\dwm_original.exe" "%SystemRoot%\System32\dwm.exe"
 :: REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\TestHooks /v XamlCredUIAvailable /t REG_DWORD /d 1 /f
 
 pause
-
 pssuspend.exe -r winlogon.exe
+
 taskkill /f /im explorer.exe
 pssuspend.exe -r winlogon.exe
 start userinit.exe

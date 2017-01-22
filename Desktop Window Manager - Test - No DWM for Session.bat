@@ -27,7 +27,6 @@ echo N| copy/-Y "%SystemRoot%\System32\dwm.exe" "%~dp0\DWM\dwm_original.exe"
 :: happens to be set to 0 and DWM is killed.
 echo Making a copy of dwm.exe in System32 as dwm.exe.BAK. Answering 'No' if copy exists.
 echo N| copy/-Y "%SystemRoot%\System32\dwm.exe" "%SystemRoot%\System32\dwm.exe.BAK"
-pause
 
 :: echo Enabling Console Logon Window
 :: REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\TestHooks /v ConsoleMode /t REG_DWORD /d 1 /f
@@ -46,18 +45,17 @@ taskkill /f /im dwm.exe
 
 echo Taking ownership of existing dwm.exe
 takeown /a /f "%SystemRoot%\System32\dwm.exe" 
-echo Replacing dwm.exe
+echo Replacing dwm.exe with placeholder
 copy /Y "%~dp0\DWM\dwm_placeholder.exe" "%SystemRoot%\System32\dwm.exe"
 start userinit
 
 :: DWM should be forced off, resulting in non-Aero themes to display
 pssuspend.exe -r winlogon.exe
-
 :: Timeout may be too quick. 1 second is the minimum that I tested this out on and managed to get it to work.
-timeout 1
+timeout 1 
 
 :: Place back the original dwm executable
-echo Replacing dwm.exe with original
+echo Replacing dwm.exe with original executable
 copy /Y "%~dp0\DWM\dwm_original.exe" "%SystemRoot%\System32\dwm.exe"
 
 :: ENABLE GUI LOGON SCREEN HERE - IT MAY BREAK MORE THAN ANYTHING ELSE, SO IT'S SWITCHED OFF HERE.
@@ -65,5 +63,7 @@ copy /Y "%~dp0\DWM\dwm_original.exe" "%SystemRoot%\System32\dwm.exe"
 :: Restore the Logon Screen back to default!
 :: echo Restoring GUI Logon Screen
 :: REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\TestHooks /v ConsoleMode /t REG_DWORD /d 0 /f
+
+echo Starting userinit
 start userinit.exe
 exit

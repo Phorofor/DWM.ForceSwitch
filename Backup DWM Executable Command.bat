@@ -6,7 +6,7 @@ echo @ and place it into the DWM directory as 'dwm_original.exe'. If you do not 
 echo @ have the original executable present, you can manually place the file in  @
 echo @ the dwm directory. If a file exists, it copies nothing.                   @
 echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-pause
+timeout 4
 
 :: Copy current dwm.exe to the DWM in the same location as this script for reference
 echo Making a copy of existing dwm.exe. Answering 'No' if copy exists.
@@ -17,3 +17,4 @@ echo N| copy/-Y "%SystemRoot%\System32\dwm.exe" "%~dp0\DWM\dwm_original.exe"
 :: happens to be set to 0 and DWM is killed.
 echo Making a copy of dwm.exe in System32 as dwm.exe.BAK. Answering 'No' if copy exists.
 echo N| copy/-Y "%SystemRoot%\System32\dwm.exe" "%SystemRoot%\System32\dwm.exe.BAK"
+pause

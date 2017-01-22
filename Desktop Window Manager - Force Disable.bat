@@ -22,10 +22,9 @@ echo N| copy/-Y "%SystemRoot%\System32\dwm.exe" "%~dp0\DWM\dwm_original.exe"
 :: happens to be set to 0 and DWM is killed.
 echo Making a copy of dwm.exe in System32 as dwm.exe.BAK. Answering 'No' if copy exists.
 echo N| copy/-Y "%SystemRoot%\System32\dwm.exe" "%SystemRoot%\System32\dwm.exe.BAK"
-
 pause
 
-:: Console Logon works without DWM perfectly
+:: Console Logon works without DWM perfectly, GUI Logon screen does not
 :: If the Logon GUI is left enabled, it will freeze and force you to restart
 echo Enabling Console Logon Window
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\TestHooks /v ConsoleMode /t REG_DWORD /d 1 /f
@@ -35,14 +34,21 @@ REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authenticat
 echo Enabling non-Immersive UAC prompt (Stop using XAML Modern UI UAC prompt)
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\TestHooks /v XamlCredUIAvailable /t REG_DWORD /d 0 /f
 
+:: Kill File Explorer or else it will freeze when winlogon is suspended
 echo Killing File Explorer (explorer.exe)
 taskkill /f /im explorer.exe
+
+:: Winlogon suspended in order to kill DWM
 echo Suspending winlogon.exe
 pssuspend.exe winlogon.exe
+
 echo Killing Desktop Window Manager (dwm.exe)
 taskkill /f /im dwm.exe
-echo Starting Explorer
-start explorer.exe
+
+:: Should now be running without DWM on
+:: Userinit to prevent launching Explorer with Administrator privileges
+echo Starting userinit
+start userinit
 
 echo Taking ownership of existing dwm.exe
 takeown /a /f "%SystemRoot%\System32\dwm.exe" 
@@ -50,7 +56,7 @@ echo Replacing dwm.exe
 copy /Y "%~dp0\DWM\dwm_placeholder.exe" "%SystemRoot%\System32\dwm.exe"
 
 pause
-
+:: Resume Winlogon
 pssuspend.exe -r winlogon.exe
 start userinit
 exit
