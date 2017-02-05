@@ -1,5 +1,5 @@
 # Desktop Window Manager Disabler/Force Switcher
-If you ever wanted to disable the Desktop Window Manager (and vsync) for some strange reason, then this is supposed to make it less tedious to accomplish. This breaks a lot of features more than it does, it may but mostly likely may not benefit your use of Windows 10.
+If you ever wanted to disable the Desktop Window Manager (and vsync) for some strange reason, then this is supposed to make it less tedious to accomplish. This breaks a lot of features more than it does when DWM is running, it may but mostly likely may not benefit your use of Windows 10.
 
 **Tested on Windows 10 / Server 2016**
 Don't bother with trying to use this on Windows 8/8.1 or any touch screen device where a physical keyboard and mouse is not possible to use.
