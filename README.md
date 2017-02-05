@@ -1,4 +1,6 @@
 # Desktop Window Manager Disabler/Force Switcher
+If you ever wanted to disable the Desktop Window Manager (and vsync) for some strange reason, then this is supposed to make it less tedious to accomplish. This breaks a lot of features more than it does to actually improve your use of Windows 10.
+
 **Tested on Windows 10 / Server 2016**
 Don't bother with trying to use this on Windows 8/8.1 or any touch screen device where a physical keyboard and mouse is not possible to use.
 
@@ -7,7 +9,7 @@ in order to perform suspend tasks.
 
 Go get PsTools at [Microsoft's TechNet website](https://technet.microsoft.com/en-us/sysinternals/pstools.aspx)
 
-Place pssuspend.exe in the same folder as this text file, or at your system's System32 folder, which is better.
+Place pssuspend.exe in the same folder as this file, or at your system's System32 folder, which is better as it'll work regardless of your current directory in the command line.
 
 The console login screen is switched on when the Force Disable DWM script is executed as you'll get a black screen of nothingness if you keep the GUI Logon screen active.
 
