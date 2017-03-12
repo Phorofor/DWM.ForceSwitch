@@ -22,6 +22,9 @@ echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 echo Making a copy of existing dwm.exe. Answering 'No' if copy exists.
 echo N| copy/-Y "%SystemRoot%\System32\dwm.exe" "%~dp0\DWM\dwm_original.exe"
 
+echo Making a copy of rundll32 to be used as a placeholder. Answering 'No' if copy exists.
+echo N| copy/-Y "%SystemRoot%\System32\rundll32.exe" "%~dp0\DWM\dwm_placeholder.exe"
+
 :: Make a copy as dwm.exe.BAK, for easy restoration from Windows' recovery image
 :: incase winlogon is launched without any dwm.exe in place, or if ConsoleMode
 :: happens to be set to 0 and DWM is killed.
