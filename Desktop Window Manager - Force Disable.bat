@@ -12,10 +12,14 @@ echo @ Place your original dwm.exe the dwm folder as 'dwm_original.exe' or      
 echo @ let this script perform that task. It's still a good idea to backup the   @
 echo @ file elsewhere yourself if you're using something else.                   @
 echo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+pause
 
 :: Copy current dwm.exe to the DWM in the same location as this script for reference
 echo Making a copy of existing dwm.exe. Answering 'No' if copy exists.
 echo N| copy/-Y "%SystemRoot%\System32\dwm.exe" "%~dp0\DWM\dwm_original.exe"
+
+echo Making a copy of rundll32 to be used as a placeholder. Answering 'No' if copy exists.
+echo N| copy/-Y "%SystemRoot%\System32\rundll32.exe" "%~dp0\DWM\dwm_placeholder.exe"
 
 :: Make a copy as dwm.exe.BAK, for easy restoration from Windows' recovery image
 :: incase winlogon is launched without any dwm.exe in place, or if ConsoleMode

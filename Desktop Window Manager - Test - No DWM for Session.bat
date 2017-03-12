@@ -28,8 +28,8 @@ echo N| copy/-Y "%SystemRoot%\System32\dwm.exe" "%~dp0\DWM\dwm_original.exe"
 echo Making a copy of dwm.exe in System32 as dwm.exe.BAK. Answering 'No' if copy exists.
 echo N| copy/-Y "%SystemRoot%\System32\dwm.exe" "%SystemRoot%\System32\dwm.exe.BAK"
 
-:: echo Enabling Console Logon Window
-:: REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\TestHooks /v ConsoleMode /t REG_DWORD /d 1 /f
+echo Enabling Console Logon Window
+REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\TestHooks /v ConsoleMode /t REG_DWORD /d 1 /f
 
 echo Enabling non-Immersive UAC prompt (Stop using XAML Modern UI UAC prompt)
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\TestHooks /v XamlCredUIAvailable /t REG_DWORD /d 0 /f
@@ -52,7 +52,8 @@ start userinit
 :: DWM should be forced off, resulting in non-Aero themes to display
 pssuspend.exe -r winlogon.exe
 :: Timeout may be too quick. 1 second is the minimum that I tested this out on and managed to get it to work.
-timeout 1 
+:: 2 minutes is safer
+timeout 2 
 
 :: Place back the original dwm executable
 echo Replacing dwm.exe with original executable
