@@ -15,6 +15,9 @@ The console login screen is switched on when the Force Disable DWM script is exe
 
 I'm not responsible if you end up damaging your Windows installation if you use the batch scripts involved here. No guarantees or warranty is applicable.
 
+# Warnings
+* This does NOT appear to be working in newer versions of Windows (version 1709). The registry tweaks such as the console window log on screen and legacy UAC prompt dialog are no longer functioning. Your system may freeze while attempting to run the provided scripts.
+
 # Consequences
 Lots of things will break in Windows 10 with DWM not running, so here's some of those:
 
